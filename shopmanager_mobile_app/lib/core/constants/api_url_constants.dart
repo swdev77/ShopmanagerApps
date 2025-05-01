@@ -1,5 +1,5 @@
 class ApiUrlConstants {
-  static const String baseUrl = 'https://localhost:5008/api';
+  static const String baseUrl = 'http://10.0.2.2:5008/api';
   static const String loginEndpoint = '/auth/login';
   static const String registerEndpoint = '/auth/register';
   static const String fetchUserEndpoint = '/user/profile';

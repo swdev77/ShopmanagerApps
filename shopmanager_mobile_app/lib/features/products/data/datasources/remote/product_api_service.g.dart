@@ -14,7 +14,7 @@ class _ProductApiService implements ProductApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://localhost:5008/api';
+    baseUrl ??= 'http://10.0.2.2:5008/api';
   }
 
   final Dio _dio;
