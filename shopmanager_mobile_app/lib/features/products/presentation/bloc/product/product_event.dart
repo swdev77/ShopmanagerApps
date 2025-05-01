@@ -3,5 +3,6 @@ abstract class ProductEvent {
 }
 
 class GetProductByBarcodeEvent extends ProductEvent {
-  const GetProductByBarcodeEvent();
+  final String barcode;
+  const GetProductByBarcodeEvent(this.barcode);
 }

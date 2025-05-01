@@ -23,7 +23,9 @@ class ProductApiServiceFake implements ProductApiService {
         fakeProduct,
         Response<ProductModel>(
           data: fakeProduct,
-          requestOptions: RequestOptions(path: '/products/barcode/$barcode'),
+          requestOptions: RequestOptions(
+            path: '/products/barcode/$barcode',
+          ),
           statusCode: 200,
         ));
 

@@ -1,1 +1,2 @@
-const String shopmanagerAPIBaseURL = 'http://zafar-pc:5008/api';
+const String barcodeValue = '1234567890123';
+const String invalidBarcodeValue = 'invalid_barcode';

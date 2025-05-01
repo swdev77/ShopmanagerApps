@@ -12,13 +12,11 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
 
   Future<void> onGetProductByBarcode(
-      ProductEvent event, Emitter<ProductState> emit) async {
-    final dataState = await _getProductByBarcodeUsecase('4612613500059');
+      GetProductByBarcodeEvent event, Emitter<ProductState> emit) async {
+    final dataState = await _getProductByBarcodeUsecase(event.barcode);
 
     dataState.fold(
       (failure) {
-        print(failure.code);
-        print(failure.message);
         emit(ProductFailure(failure));
       },
       (product) {

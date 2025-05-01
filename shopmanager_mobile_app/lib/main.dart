@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/products/presentation/bloc/product/product_bloc.dart';
-import 'package:shopmanager_mobile_app/features/products/presentation/bloc/product/product_event.dart';
 import 'package:shopmanager_mobile_app/features/products/presentation/pages/product_page.dart';
 import 'package:shopmanager_mobile_app/injection_container.dart';
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProductBloc>(
-      create: (context) => sl()..add(const GetProductByBarcodeEvent()),
+      create: (context) => sl<ProductBloc>(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
