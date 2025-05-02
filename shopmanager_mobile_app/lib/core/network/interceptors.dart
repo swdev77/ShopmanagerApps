@@ -16,7 +16,7 @@ class LoggerInterceptor extends Interceptor {
     final requestPath = '${options.baseUrl}${options.path}';
     logger.e('${options.method} request ==> $requestPath');
     logger.e('Error : ${err.error}\n '
-             'Error message: ${err.message}');
+        'Error message: ${err.message}');
 
     handler.next(err);
   }
@@ -25,17 +25,17 @@ class LoggerInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final requestPath = '${options.baseUrl}${options.path}';
     logger.i('${options.method} request ==> $requestPath');
+    // logger.i('Headers: ${options.headers}');
+    // logger.i('Body: ${options.data}');
     handler.next(options);
   }
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    logger.d(
-      'STATUS CODE: ${response.statusCode} \n'
-      'STATUS MESSAGE: ${response.statusMessage} \n'
-      'HEADERS: ${response.headers} \n'
-      'Data: ${response.data} \n'
-    );
+    logger.d('STATUS CODE: ${response.statusCode} \n'
+        'STATUS MESSAGE: ${response.statusMessage} \n'
+        'HEADERS: ${response.headers} \n'
+        'Data: ${response.data} \n');
     handler.next(response);
   }
 }

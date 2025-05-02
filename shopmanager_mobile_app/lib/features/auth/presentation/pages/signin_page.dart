@@ -5,6 +5,7 @@ import 'package:shopmanager_mobile_app/common/bloc/button/button_state_cubit.dar
 import 'package:shopmanager_mobile_app/common/widgets/button/basic_app_button.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/entities/signin_request.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/usecases/signin_usecase.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/pages/user_page.dart';
 import 'package:shopmanager_mobile_app/injection_container.dart';
 
 class SigninPage extends StatelessWidget {
@@ -22,7 +23,12 @@ class SigninPage extends StatelessWidget {
           listener: (context, state) {
             late String message;
             if (state is ButtonSuccessState) {
-              message = 'Sign in success';
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UserPage(),
+                ),
+              );
             } else if (state is ButtonFailureState) {
               message = state.errorMessage;
             }
@@ -97,7 +103,7 @@ class SigninPage extends StatelessWidget {
             context.read<ButtonStateCubit>().execute(
                   usecase: sl<SigninUsecase>(),
                   params: SigninRequest(
-                    login: _emailController.text,
+                    email: _emailController.text,
                     password: _passwordController.text,
                   ),
                 );

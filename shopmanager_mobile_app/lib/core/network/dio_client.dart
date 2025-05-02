@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:shopmanager_mobile_app/core/constants/api_url_constants.dart';
 import 'package:shopmanager_mobile_app/core/network/interceptors.dart';
 
 class DioClient {
@@ -7,6 +8,7 @@ class DioClient {
   DioClient()
       : _dio = Dio(
           BaseOptions(
+            baseUrl: ApiUrlConstants.baseUrl,
             headers: {
               'Content-Type': 'application/json',
             },
