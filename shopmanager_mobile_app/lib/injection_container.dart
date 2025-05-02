@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:shopmanager_mobile_app/core/constants/constants.dart';
 import 'package:shopmanager_mobile_app/core/network/dio_client.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/sources/auth_api_service.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/usecases/signin_usecase.dart';
+import 'package:shopmanager_mobile_app/features/products/data/datasources/fake/product_dio_adapter.dart';
 import 'package:shopmanager_mobile_app/features/products/data/datasources/remote/product_api_service.dart';
 import 'package:shopmanager_mobile_app/features/products/data/repositories/product_repository.dart';
 import 'package:shopmanager_mobile_app/features/products/domain/repositories/product_repository.dart';
@@ -18,37 +17,11 @@ final sl = GetIt.instance;
 Future<void> initializeDependencies() async {
   // faking dio
   final dio = Dio();
-  final dioAdapter = DioAdapter(dio: dio);
 
-  dioAdapter.onGet(
-    '/products/barcode/$barcodeValue',
-    (server) {
-      server.reply(
-        200,
-        {
-          'id': 1,
-          'type': 'Fake Type from Dio Adapter',
-          'brand': 'Fake Brand from Dio Adapter',
-          'model': 'Fake Model from Dio Adapter',
-          'barcode': '1234567890123',
-          'priceIn': 7.80,
-          'priceSell': 9.99,
-        },
-      );
-    },
-  );
-  dioAdapter.onGet(
-    '/products/barcode/$invalidBarcodeValue',
-    (server) => server.reply(
-      404,
-      {
-        'error': 'Product not found',
-      },
-    ),
-  );
+  ProductDioAdapter(dio: dio).init();
 
   sl.registerSingleton<Dio>(
-    Dio(),
+    dio, //Dio(),
   );
 
   sl.registerSingleton<DioClient>(

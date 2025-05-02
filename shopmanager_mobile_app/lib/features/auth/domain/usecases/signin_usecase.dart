@@ -9,11 +9,11 @@ class SigninUsecase implements Usecase<Either, SigninRequest> {
   SigninUsecase({required this.authRepository});
 
   @override
-  Future<Either> call({SigninRequest? request}) async {
-    if (request == null) {
+  Future<Either> call({SigninRequest? param}) async {
+    if (param == null) {
       return left('Sign in parameters can not be empty');
     }
 
-    return await authRepository.signin(request: request);
+    return await authRepository.signin(request: param);
   }
 }

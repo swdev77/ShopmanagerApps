@@ -12,7 +12,7 @@ class ButtonStateCubit extends Cubit<ButtonState> {
     await Future.delayed(const Duration(seconds: 1));
 
     try {
-      Either result = await usecase.call(request: params);
+      Either result = await usecase.call(param: params);
 
       result.fold(
         (error) {
