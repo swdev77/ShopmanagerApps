@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopmanager_mobile_app/features/auth/presentation/pages/signin_page.dart';
+import 'package:shopmanager_mobile_app/core/theme/app_theme.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:shopmanager_mobile_app/injection_container.dart';
 
 Future<void> main() async {
@@ -14,11 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        useMaterial3: true,
-      ),
-      home: SigninPage(),
+      theme: AppTheme.darkThemeData,
+
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      //   useMaterial3: true,
+      // ),
+
+      home: SignUpPage(),
     );
   }
 }

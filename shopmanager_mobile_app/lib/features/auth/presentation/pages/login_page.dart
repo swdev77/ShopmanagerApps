@@ -8,8 +8,8 @@ import 'package:shopmanager_mobile_app/features/auth/domain/usecases/signin_usec
 import 'package:shopmanager_mobile_app/features/auth/presentation/pages/user_page.dart';
 import 'package:shopmanager_mobile_app/injection_container.dart';
 
-class SigninPage extends StatelessWidget {
-  SigninPage({super.key});
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

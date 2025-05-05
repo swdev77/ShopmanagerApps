@@ -1,0 +1,2 @@
+C:/Projects/ShopmanagerApps/shopmanager_mobile_app/android/app/.cxx/Debug/94q2c3i3/x86/CMakeFiles/edit_cache.dir
+C:/Projects/ShopmanagerApps/shopmanager_mobile_app/android/app/.cxx/Debug/94q2c3i3/x86/CMakeFiles/rebuild_cache.dir
