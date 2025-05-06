@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static ColorScheme _colorScheme() => ColorScheme.fromSeed(
-        seedColor: Colors.orange,
-      );
   static OutlineInputBorder _border() => OutlineInputBorder(
         // borderSide: const BorderSide(
         //   width: 2,
@@ -12,7 +9,8 @@ class AppTheme {
       );
   static final lightThemeData = ThemeData(
     useMaterial3: true,
-    colorScheme: _colorScheme().copyWith(brightness: Brightness.light),
+    colorSchemeSeed: Colors.amber,
+    brightness: Brightness.light,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(16),
       enabledBorder: _border(),
@@ -22,7 +20,8 @@ class AppTheme {
 
   static final darkThemeData = ThemeData(
     useMaterial3: true,
-    colorScheme: _colorScheme().copyWith(brightness: Brightness.dark),
+    colorSchemeSeed: Colors.amber,
+    brightness: Brightness.dark,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(16),
       enabledBorder: _border(),

@@ -1,38 +1,17 @@
 name: shopmanager_mobile_app
-description: "A new Flutter project."
+description: "Shop manager mobile app."
 
 
 publish_to: 'none' 
-
-
-
-
-
-
-
-
-
-
-
-
 
 version: 1.0.0+1
 
 environment:
   sdk: ^3.5.3
 
-
-
-
-
-
-
 dependencies:
   flutter:
     sdk: flutter
-
-
-  
   
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
@@ -49,25 +28,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  
-  
-  
-  
   
   flutter_lints: ^4.0.0
   retrofit_generator: ^9.1.5
   build_runner: ^2.4.13
   json_serializable: ^6.9.0
 
-
-
-
-
 flutter:
-
-  
-  
   
   uses-material-design: true
 
