@@ -1,4 +1,4 @@
-package com.example.shopmanager_mobile_app
+package uz.shopmanager.shopmanager_mobile_app
 
 import io.flutter.embedding.android.FlutterActivity
 
