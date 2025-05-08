@@ -1,0 +1,235 @@
+{
+  "project_info": {
+    "project_number": "207825433961",
+    "firebase_url": "https://uz-shopmanager-default-rtdb.firebaseio.com",
+    "project_id": "uz-shopmanager",
+    "storage_bucket": "uz-shopmanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:dc19f86ca9860893b739f8",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app_locale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-ban9olhdcpq6etagq9arkb2jl7gvhurb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_app_locale",
+            "certificate_hash": "f08c4f42270cce13880e1d9db02202d60f35b572"
+          }
+        },
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:221b2fa724de4763b739f8",
+        "android_client_info": {
+          "package_name": "com.example.shopmanager_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:5fa38f1c560792a4b739f8",
+        "android_client_info": {
+          "package_name": "com.example.shopmanager_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:0b6f2527e23ce896b739f8",
+        "android_client_info": {
+          "package_name": "uz.shopmanager.shopmanager_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:e498f91407d64655b739f8",
+        "android_client_info": {
+          "package_name": "uz.shopmananger.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207825433961:android:cf641453f245c6d6b739f8",
+        "android_client_info": {
+          "package_name": "uz.shopmananger.shopmanager_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm1fA_3HFTjg4q4eqQVce5G5rsSegM6Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207825433961-t4rnhlqov7sqgdel8lbc6kr5b33alkf0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "207825433961-3mo1n1g0a3lfrms6o8se4n2ft1t5g83r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppLocale"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

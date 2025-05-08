@@ -1,0 +1,25 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "uz-shopmanager",
+                    "appId": "1:207825433961:android:0b6f2527e23ce896b739f8",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "uz-shopmanager",
+                    "configurations": {
+                        "android": "1:207825433961:android:0b6f2527e23ce896b739f8",
+                        "ios": "1:207825433961:ios:07a04f4de0e4f689b739f8",
+                        "macos": "1:207825433961:ios:07a04f4de0e4f689b739f8",
+                        "web": "1:207825433961:web:0c686d3443adfb1ab739f8",
+                        "windows": "1:207825433961:web:d66b6243683089e4b739f8"
+                    }
+                }
+            }
+        }
+    }
+}
