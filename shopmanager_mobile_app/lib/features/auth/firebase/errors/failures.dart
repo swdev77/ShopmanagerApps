@@ -27,6 +27,10 @@ class SignUpWithEmailAndPasswordFailure implements Exception {
         return const SignUpWithEmailAndPasswordFailure(
           'Please enter a stronger password.',
         );
+      case 'network-request-failed':
+        return const SignUpWithEmailAndPasswordFailure(
+          'Network request failed. Please check your internet connection.',
+        );
       default:
         return const SignUpWithEmailAndPasswordFailure();
     }
