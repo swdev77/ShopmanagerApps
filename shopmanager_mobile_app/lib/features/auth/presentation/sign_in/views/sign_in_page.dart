@@ -8,6 +8,9 @@ class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
   static Page<void> page() => const MaterialPage(child: SignInPage());
+  static route() => MaterialPageRoute<void>(
+        builder: (_) => const SignInPage(),
+      );
 
   @override
   Widget build(BuildContext context) {

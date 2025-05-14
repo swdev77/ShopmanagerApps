@@ -1,10 +1,9 @@
-import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/core/theme/app_theme.dart';
 import 'package:shopmanager_mobile_app/features/auth/firebase/authentication_repository.dart';
 import 'package:shopmanager_mobile_app/features/auth/firebase/bloc/auth_bloc.dart';
-import 'package:shopmanager_mobile_app/routes.dart';
+import 'package:shopmanager_mobile_app/features/splash/views/splash_page.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -45,10 +44,12 @@ class AppView extends StatelessWidget {
       //   useMaterial3: true,
       // ),
 
-      home: FlowBuilder<AuthStatus>(
-        state: context.select((AuthBloc bloc) => bloc.state.status),
-        onGeneratePages: onGenerateAppViewPages,
-      ),
+      home: const SplashPage(),
+
+      // home: FlowBuilder<AuthStatus>(
+      //   state: context.select((AuthBloc bloc) => bloc.state.status),
+      //   onGeneratePages: onGenerateAppViewPages,
+      // ),
     );
   }
 }
