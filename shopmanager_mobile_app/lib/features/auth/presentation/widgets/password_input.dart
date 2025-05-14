@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopmanager_mobile_app/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/validations/password.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/validations/password_comfirmed.dart';
 
 class PasswordInput extends StatelessWidget {
-  const PasswordInput({super.key});
+  final PasswordValidationError? displayError;
+  final Function(String value)? onChanged;
+
+  const PasswordInput({super.key, this.displayError, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
-    final displayError = context.select(
-      (SignUpCubit cubit) => cubit.state.password.displayError,
-    );
-
     return TextField(
       key: const Key('passwordInput_textField'),
-      onChanged: (value) => context.read<SignUpCubit>().passwordChanged(value),
+      onChanged:
+          onChanged, //(value) => context.read<SignUpCubit>().passwordChanged(value),
       obscureText: true,
       decoration: InputDecoration(
         labelText: 'password',
@@ -25,17 +25,16 @@ class PasswordInput extends StatelessWidget {
 }
 
 class ConfirmPasswordInput extends StatelessWidget {
-  const ConfirmPasswordInput({super.key});
+  final ConfirmedPasswordValidationStatus? displayError;
+  final Function(String value)? onChanged;
+
+  const ConfirmPasswordInput({super.key, this.displayError, this.onChanged});
   @override
   Widget build(BuildContext context) {
-    final displayError = context.select(
-      (SignUpCubit cubit) => cubit.state.confirmedPassword.displayError,
-    );
-
     return TextField(
       key: const Key('confirmedPassword_textField'),
-      onChanged: (value) =>
-          context.read<SignUpCubit>().confirmedPasswordChanged(value),
+      onChanged: onChanged, //(value) =>
+      //context.read<SignUpCubit>().confirmedPasswordChanged(value),
       obscureText: true,
       decoration: InputDecoration(
         labelText: 'confirmed password',

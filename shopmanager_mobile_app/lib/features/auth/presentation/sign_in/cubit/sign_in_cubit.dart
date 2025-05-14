@@ -27,6 +27,7 @@ class SignInCubit extends Cubit<SignInState> {
         password: state.password.value,
       );
       emit(state.withSubmissionInSuccess());
+      
     } on LogInWithEmailAndPasswordFailure catch (e) {
       emit(state.withSubmissionFailure(e.message));
     } catch (_) {

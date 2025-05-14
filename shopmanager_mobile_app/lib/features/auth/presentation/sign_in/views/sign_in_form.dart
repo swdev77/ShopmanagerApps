@@ -3,12 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/sign_in/cubit/sign_in_cubit.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/sign_up/views/sign_up_page.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/validations/email.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/validations/password.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/email_input.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/password_input.dart';
+import 'package:shopmanager_mobile_app/home_page.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    EmailValidationError? emailDisplayError =
+        context.select((SignInCubit cubit) => cubit.state.email.displayError);
+    PasswordValidationError? passwordDisplayError = context
+        .select((SignInCubit cubit) => cubit.state.password.displayError);
+
     return BlocListener<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state.status.isFailure) {
@@ -20,11 +30,31 @@ class SignInForm extends StatelessWidget {
               ),
             );
         }
+        if (state.status.isSuccess) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              const SnackBar(
+                content: Text('Authentication Success'),
+              ),
+            );
+        }
       },
-      child: Align(
-        alignment: const Alignment(0, -1 / 3),
+      child: Center(
         child: Column(
           children: [
+            EmailInput(
+              displayError: emailDisplayError,
+              onChanged: (value) =>
+                  context.read<SignInCubit>().emailChanged(value),
+            ),
+            const SizedBox(height: 8),
+            PasswordInput(
+              displayError: passwordDisplayError,
+              onChanged: (value) =>
+                  context.read<SignInCubit>().passwordChanged(value),
+            ),
+            const SizedBox(height: 8),
             _SignInButton(),
             const SizedBox(height: 8),
             _SignUpButton(),
@@ -59,7 +89,10 @@ class _SignInButton extends StatelessWidget {
           minimumSize: const Size.fromHeight(48),
         ),
         onPressed: isValid
-            ? () => context.read<SignInCubit>().signInWithCredentials()
+            ? () {
+                context.read<SignInCubit>().signInWithCredentials();
+                Navigator.of(context).pushReplacement(HomePage.route());
+              }
             : null,
         child: const Text('Sign In'));
   }

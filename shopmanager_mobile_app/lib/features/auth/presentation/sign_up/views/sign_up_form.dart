@@ -29,11 +29,26 @@ class SignUpForm extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const EmailInput(),
+            EmailInput(
+              displayError: context.select(
+                  (SignUpCubit cubit) => cubit.state.email.displayError),
+              onChanged: (value) =>
+                  context.read<SignUpCubit>().emailChanged(value),
+            ),
             const SizedBox(height: 8),
-            const PasswordInput(),
+            PasswordInput(
+              displayError: context.select(
+                  (SignUpCubit cubit) => cubit.state.password.displayError),
+              onChanged: (value) =>
+                  context.read<SignUpCubit>().passwordChanged(value),
+            ),
             const SizedBox(height: 8),
-            const ConfirmPasswordInput(),
+            ConfirmPasswordInput(
+              displayError: context.select((SignUpCubit cubit) =>
+                  cubit.state.confirmedPassword.displayError),
+              onChanged: (value) =>
+                  context.read<SignUpCubit>().confirmedPasswordChanged(value),
+            ),
             const SizedBox(height: 8),
             _SignUpButton(),
           ],
