@@ -35,8 +35,11 @@ class AuthenticationRepository {
     });
   }
 
-  UserModel get currentUserModel =>
-      _cacheClient.read<UserModel>(key: userCacheKey) ?? UserModel.empty;
+  UserModel get currentUserModel => _firebaseAuth.currentUser == null
+      ? UserModel.empty
+      : _firebaseAuth.currentUser!.toUserModel;
+
+  // _cacheClient.read<UserModel>(key: userCacheKey) ?? UserModel.empty;
 
   Future<void> signUp({
     required String email,
@@ -117,12 +120,10 @@ class AuthenticationRepository {
 }
 
 extension on firebase_auth.User {
-  UserModel get toUserModel {
-    return UserModel(
-      id: uid,
-      email: email,
-      name: displayName,
-      photo: photoURL,
-    );
-  }
+  UserModel get toUserModel => UserModel(
+        id: uid,
+        email: email,
+        name: displayName,
+        photo: photoURL,
+      );
 }
