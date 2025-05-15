@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/auth/firebase/bloc/auth_bloc.dart';
+import 'package:shopmanager_mobile_app/features/auth/firebase/models/user.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  static Page<void> page() => const MaterialPage<void>(child: HomePage());
-  static Route<void> route() =>
-      MaterialPageRoute(builder: (_) => const HomePage());
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final user = context.select((AuthBloc bloc) => bloc.state.user);
+    UserModel user = context.read<AuthBloc>().state.user;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),

@@ -7,7 +7,7 @@ import 'package:shopmanager_mobile_app/features/auth/presentation/validations/em
 import 'package:shopmanager_mobile_app/features/auth/presentation/validations/password.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/email_input.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/password_input.dart';
-import 'package:shopmanager_mobile_app/home_page.dart';
+import 'package:shopmanager_mobile_app/features/home/pages/home_page.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -91,7 +91,7 @@ class _SignInButton extends StatelessWidget {
         onPressed: isValid
             ? () {
                 context.read<SignInCubit>().signInWithCredentials();
-                Navigator.of(context).pushReplacement(HomePage.route());
+                Navigator.of(context).pushReplacement(HomePage.route(context));
               }
             : null,
         child: const Text('Sign In'));
