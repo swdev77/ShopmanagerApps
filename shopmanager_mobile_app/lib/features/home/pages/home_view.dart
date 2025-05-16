@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: unused_import
-import 'package:shopmanager_mobile_app/features/auth/firebase/bloc/auth_bloc.dart';
 import 'package:shopmanager_mobile_app/features/home/bloc/user_info_cubit.dart';
 import 'package:shopmanager_mobile_app/features/home/bloc/user_info_state.dart';
 
