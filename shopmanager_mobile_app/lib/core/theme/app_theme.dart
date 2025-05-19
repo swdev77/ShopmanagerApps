@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shopmanager_mobile_app/core/theme/app_colors.dart';
 
 class AppTheme {
-  static const Color color = Colors.greenAccent;
   static OutlineInputBorder _border() => OutlineInputBorder(
-        // borderSide: const BorderSide(
-        //   width: 2,
-        // ),
         borderRadius: BorderRadius.circular(8),
       );
   static final lightThemeData = ThemeData(
     useMaterial3: true,
-    colorSchemeSeed: color,
+    colorSchemeSeed: AppColors.seedColor,
     brightness: Brightness.light,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(16),
@@ -21,7 +18,7 @@ class AppTheme {
 
   static final darkThemeData = ThemeData(
     useMaterial3: true,
-    colorSchemeSeed: color,
+    colorSchemeSeed: AppColors.seedColor,
     brightness: Brightness.dark,
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.all(16),
