@@ -44,4 +44,55 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthError(message: e.toString()));
     }
   }
+
+  Future<void> signUp(String name, String email, String password) async {
+    try {
+      emit(AuthLoading());
+
+      final user = await authRepository.signUpWithEmailAndPassword(
+          name, email, password);
+
+      if (user == null) {
+        emit(Unauthenticated());
+        return;
+      }
+
+      _currentUser = user;
+
+      emit(Authenticated(user: user));
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+    }
+  }
+
+  Future<void> signOut() async {
+    emit(AuthLoading());
+    await authRepository.signOut();
+    _currentUser = null;
+    emit(Unauthenticated());
+  }
+
+  Future<String> forgotPassword(String email) async {
+    try {
+      emit(AuthLoading());
+      final message = await authRepository.sendPasswordResetEmail(email);
+      emit(Unauthenticated());
+      return message;
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+      rethrow;
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    try {
+      emit(AuthLoading());
+      await authRepository.deleteAccount();
+      _currentUser = null;
+      emit(Unauthenticated());
+    } catch (e) {
+      emit(AuthError(message: e.toString()));
+      emit(Unauthenticated()); 
+    }
+  }
 }

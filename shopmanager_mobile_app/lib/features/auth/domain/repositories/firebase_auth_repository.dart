@@ -6,7 +6,7 @@ abstract class FirebaseAuthRepository {
     String password,
   );
 
-  Future<AuthUser> signUpWithEmailAndPassword(
+  Future<AuthUser?> signUpWithEmailAndPassword(
     String username,
     String email,
     String password,
