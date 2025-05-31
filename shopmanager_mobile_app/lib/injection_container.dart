@@ -4,6 +4,7 @@ import 'package:shopmanager_mobile_app/core/network/dio_client.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/sources/auth_api_service.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:shopmanager_mobile_app/features/auth/domain/repositories/firebase_auth_repository.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/usecases/signin_usecase.dart';
 import 'package:shopmanager_mobile_app/features/auth/firebase/authentication_repository.dart';
 import 'package:shopmanager_mobile_app/features/products/data/datasources/fake/product_dio_adapter.dart';
@@ -16,7 +17,6 @@ import 'package:shopmanager_mobile_app/features/products/presentation/bloc/produ
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-
   sl.registerSingleton<AuthenticationRepository>(
     AuthenticationRepository(),
   );
@@ -40,7 +40,7 @@ Future<void> initializeDependencies() async {
     AuthRepositoryImpl(authApiService: sl<AuthApiService>()),
   );
   sl.registerSingleton<SigninUsecase>(
-    SigninUsecase(authRepository: sl<AuthRepository>()),
+    SigninUsecase(authRepository: sl<FirebaseAuthRepository>()),
   );
 
   sl.registerSingleton<ProductApiService>(

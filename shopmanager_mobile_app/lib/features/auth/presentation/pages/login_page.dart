@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/common/bloc/button/button_state.dart';
 import 'package:shopmanager_mobile_app/common/bloc/button/button_state_cubit.dart';
 import 'package:shopmanager_mobile_app/common/widgets/button/basic_app_button.dart';
-import 'package:shopmanager_mobile_app/features/auth/domain/entities/signin_request.dart';
+import 'package:shopmanager_mobile_app/features/auth/domain/entities/login_request.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/usecases/signin_usecase.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/pages/user_page.dart';
 import 'package:shopmanager_mobile_app/injection_container.dart';
@@ -102,7 +102,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             context.read<ButtonStateCubit>().execute(
                   usecase: sl<SigninUsecase>(),
-                  params: SigninRequest(
+                  params: LoginRequest(
                     email: _emailController.text,
                     password: _passwordController.text,
                   ),
