@@ -1,4 +1,4 @@
-abstract class SplashState {}
+sealed class SplashState {}
 
 class DisplaySplash extends SplashState{}
 

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shopmanager_mobile_app/core/network/dio_client.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:shopmanager_mobile_app/features/auth/data/repositories/firebase_auth_repository.dart';
 import 'package:shopmanager_mobile_app/features/auth/data/sources/auth_api_service.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:shopmanager_mobile_app/features/auth/domain/repositories/firebase_auth_repository.dart';
@@ -17,6 +18,10 @@ import 'package:shopmanager_mobile_app/features/products/presentation/bloc/produ
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
+  sl.registerSingleton<FirebaseAuthRepository>(
+    FirebaseAuthRepositoryImpl(),
+  );
+
   sl.registerSingleton<AuthenticationRepository>(
     AuthenticationRepository(),
   );

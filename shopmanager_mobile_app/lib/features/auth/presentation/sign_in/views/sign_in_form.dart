@@ -10,6 +10,8 @@ import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/passwo
 import 'package:shopmanager_mobile_app/features/home/pages/home_page.dart';
 
 class SignInForm extends StatelessWidget {
+  
+
   const SignInForm({super.key});
 
   @override

@@ -16,6 +16,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+
     return Scaffold(
       body: BlocProvider(
         create: (context) => ButtonStateCubit(),
@@ -41,13 +43,13 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _signin(),
+                _signin(themeData),
                 const SizedBox(height: 50),
                 _emailField(_emailController),
                 const SizedBox(height: 20),
                 _passwordField(_passwordController),
                 const SizedBox(height: 40),
-                _signinButton(context),
+                _loginButton(context),
               ],
             ),
           ),
@@ -56,13 +58,10 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _signin() {
-    return const Text(
-      'Sign In',
-      style: TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.bold,
-      ),
+  Widget _signin(ThemeData themeData) {
+    return Text(
+      'Login',
+      style: themeData.textTheme.headlineLarge,
     );
   }
 
@@ -87,7 +86,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _signinButton(BuildContext context) {
+  Widget _loginButton(BuildContext context) {
     // return ElevatedButton(
     //   onPressed: () {},
     //   child: Text('Login'),
@@ -100,6 +99,13 @@ class LoginPage extends StatelessWidget {
         return BasicAppButton(
           title: 'Login',
           onPressed: () {
+            if (_emailController.text.isEmpty ||
+                _passwordController.text.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Please fill in all fields')),
+              );
+              return;
+            }
             context.read<ButtonStateCubit>().execute(
                   usecase: sl<SigninUsecase>(),
                   params: LoginRequest(

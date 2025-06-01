@@ -4,10 +4,12 @@ import 'package:shopmanager_mobile_app/core/theme/app_colors.dart';
 class AppTheme {
   static ColorScheme lightColorScheme = ColorScheme.fromSeed(
     seedColor: AppColors.seedColor,
+    primary: AppColors.seedColor,
     brightness: Brightness.light,
   );
   static ColorScheme darkColorScheme = ColorScheme.fromSeed(
     seedColor: AppColors.seedColor,
+    primary: AppColors.seedColor,
     brightness: Brightness.dark,
   );
 
@@ -16,9 +18,19 @@ class AppTheme {
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(
           color: color,
-          width: 1.0,
+          width: 2.0,
         ),
       );
+
+  static FilledButtonThemeData filledButtonThemeData = FilledButtonThemeData(
+    style: FilledButton.styleFrom(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      minimumSize: const Size.fromHeight(56),
+    ),
+  );
+
   static final lightThemeData = ThemeData(
     useMaterial3: true,
     colorScheme: lightColorScheme,
@@ -28,6 +40,7 @@ class AppTheme {
       enabledBorder: _border(color: lightColorScheme.tertiary),
       focusedBorder: _border(color: lightColorScheme.primary),
     ),
+    filledButtonTheme: filledButtonThemeData,
   );
 
   static final darkThemeData = ThemeData(
@@ -39,5 +52,6 @@ class AppTheme {
       enabledBorder: _border(color: darkColorScheme.tertiary),
       focusedBorder: _border(color: darkColorScheme.primary),
     ),
+    filledButtonTheme: filledButtonThemeData,
   );
 }

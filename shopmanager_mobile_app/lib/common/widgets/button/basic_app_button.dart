@@ -19,7 +19,7 @@ class BasicAppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const heightValue = 50.0;
+    const heightValue = 48.0;
     final widthValue = MediaQuery.of(context).size.width;
 
     return BlocBuilder<ButtonStateCubit, ButtonState>(
@@ -32,9 +32,9 @@ class BasicAppButton extends StatelessWidget {
   }
 
   Widget _loading(BuildContext context, double height, double width) {
-    return ElevatedButton(
+    return FilledButton(
       onPressed: null,
-      style: ElevatedButton.styleFrom(
+      style: FilledButton.styleFrom(
           disabledBackgroundColor: Colors.grey,
           minimumSize: Size(width, height)),
       child: const CircularProgressIndicator(
@@ -55,9 +55,9 @@ class BasicAppButton extends StatelessWidget {
         //   )
         // ],
       ),
-      child: ElevatedButton(
+      child: FilledButton(
         onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
+        style: FilledButton.styleFrom(
           minimumSize: Size(width, height),
         ),
         child: Text(

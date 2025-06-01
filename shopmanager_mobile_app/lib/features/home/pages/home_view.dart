@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// ignore: unused_import
-import 'package:shopmanager_mobile_app/features/home/bloc/user_info_cubit.dart';
-import 'package:shopmanager_mobile_app/features/home/bloc/user_info_state.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_cubit.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_state.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,38 +10,56 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return BlocBuilder<UserInfoCubit, UserInfoState>(
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
-        if (state is UserInfoLoading) {
+        if (state is AuthLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
-        if (state is UserInfoLoaded) {
+        if (state is Authenticated) {
           return Scaffold(
             appBar: AppBar(
               title: const Text('Home'),
               actions: [
                 IconButton(
                   onPressed: () {
-                    context.read<UserInfoCubit>().userLogout();
+                    context.read<AuthCubit>().signOut();
                   },
                   icon: const Icon(Icons.exit_to_app),
                 ),
               ],
             ),
             body: Center(
-              child: Column(
-                children: [
-                  Text(
-                    state.userModel.email ?? '',
-                    style: textTheme.titleLarge,
-                  ),
-                  Text(
-                    state.userModel.name ?? '',
-                    style: textTheme.headlineSmall,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      state.user.email,
+                      style: textTheme.titleLarge,
+                    ),
+                    Text(
+                      state.user.uid,
+                      style: textTheme.headlineSmall,
+                    ),
+                    const SizedBox(height: 32),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Row(
+                        children: [
+                          Icon(Icons.settings),
+                          Text('Settings'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
