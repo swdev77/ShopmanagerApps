@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_cubit.dart';
+import 'package:shopmanager_mobile_app/features/auth/presentation/pages/shop_manager_logo.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_text_field.dart';
 
@@ -62,7 +63,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    // final colorScheme = theme.colorScheme;
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -72,20 +73,13 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               children: [
                 // logo
-                Icon(
-                  Icons.lock_open,
-                  size: 64,
-                  color: colorScheme.primary,
+                const ShopManagerLogo(
+                  height: 160,
                 ),
 
-                const SizedBox(height: 24),
+                const SizedBox(height: 8),
 
                 // title of app
-
-                Text(
-                  'Shop Manager',
-                  style: theme.textTheme.headlineLarge,
-                ),
 
                 Text(
                   "Let's create an account for you",

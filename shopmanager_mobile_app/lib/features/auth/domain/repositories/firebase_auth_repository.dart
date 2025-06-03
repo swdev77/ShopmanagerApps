@@ -15,6 +15,8 @@ abstract class FirebaseAuthRepository {
   Future<void> signOut();
   Future<AuthUser?> getCurrentUser();
 
+  Future<bool> hasSignIn();
+
   Future<String> sendPasswordResetEmail(String email);
 
   Future<void> deleteAccount();
