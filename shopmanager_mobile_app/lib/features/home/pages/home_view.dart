@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_state.dart';
+import 'package:shopmanager_mobile_app/features/settings/presentation/pages/settings_page.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -39,10 +40,10 @@ class HomeView extends StatelessWidget {
                       state.user.email,
                       style: textTheme.titleLarge,
                     ),
-                    Text(
-                      state.user.uid,
-                      style: textTheme.headlineSmall,
-                    ),
+                    // Text(
+                    //   state.user.uid,
+                    //   style: textTheme.headlineSmall,
+                    // ),
                     const SizedBox(height: 32),
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
@@ -50,7 +51,10 @@ class HomeView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        // navigate to page settings
+                        Navigator.push(context, SettingsPage.route());
+                      },
                       child: const Row(
                         children: [
                           Icon(Icons.settings),

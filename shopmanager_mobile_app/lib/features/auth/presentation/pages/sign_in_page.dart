@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/pages/shop_manager_logo.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_button.dart';
-import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:shopmanager_mobile_app/core/widgets/custom_text_field.dart';
 
 class SignInPage extends StatefulWidget {
   final void Function()? togglePages;
@@ -26,7 +26,7 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  void signIn() {
+  Future<void> signIn() async {
     final String email = emailController.text;
     final String password = passwordController.text;
 
@@ -41,7 +41,12 @@ class _SignInPageState extends State<SignInPage> {
       return;
     }
 
-    authCubit.signIn(email, password);
+    try {
+      await authCubit.signIn(email, password);
+    } catch (e) {
+      debugPrint(e.toString());
+      _showSnackBar('Error on sign in: $e');
+    }
   }
 
   @override

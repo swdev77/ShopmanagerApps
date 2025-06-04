@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/pages/shop_manager_logo.dart';
 import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_button.dart';
-import 'package:shopmanager_mobile_app/features/auth/presentation/widgets/custom_text_field.dart';
+import 'package:shopmanager_mobile_app/core/widgets/custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   final void Function()? togglePages;

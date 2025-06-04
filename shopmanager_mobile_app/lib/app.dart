@@ -30,6 +30,8 @@ class App extends StatelessWidget {
         darkTheme: AppTheme.darkThemeData,
         home: BlocConsumer<AuthCubit, AuthState>(
           builder: (context, state) {
+            debugPrint("Auth state: $state");
+
             if (state is Unauthenticated) {
               return const AuthPage();
             }
