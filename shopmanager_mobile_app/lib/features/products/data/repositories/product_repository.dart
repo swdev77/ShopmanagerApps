@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:shopmanager_mobile_app/core/failure.dart';
 import 'package:shopmanager_mobile_app/features/products/data/datasources/remote/product_api_service.dart';
@@ -15,23 +13,21 @@ class ProductRepositoryImpl implements ProductRepository {
   @override
   Future<Either<Failure, ProductModel>> getProductByBarcode(
       String barcode) async {
-    try {
-      final httpResponse =
-          await _productApiService.getProductByBarcode(barcode);
+    final result = await _productApiService.getProductByBarcode(barcode);
 
-      if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return right(httpResponse.data);
-      } else {
+    return result.fold(
+      (error) {
         return left(
-          ServerFailure(
-            message: httpResponse.response.statusMessage ?? 'Unknown error',
-            code: httpResponse.response.statusCode.toString(),
+          AppFailure(
+            code: '',
+            message: 'Unknown error occurred',
           ),
         );
-      }
-    } catch (e) {
-      return left(AppFailure(message: e.toString(), code: ''));
-    }
+      },
+      (productData) {
+        return right(ProductModel.fromJson(productData));
+      },
+    );
   }
 
   @override

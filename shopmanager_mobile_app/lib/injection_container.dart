@@ -49,7 +49,7 @@ Future<void> initializeDependencies() async {
   );
 
   sl.registerSingleton<ProductApiService>(
-    ProductApiService(sl<Dio>()),
+    ProductApiService(dioClient: sl<DioClient>()),
   );
 
   sl.registerSingleton<ProductRepository>(
