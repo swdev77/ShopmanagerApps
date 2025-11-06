@@ -1,0 +1,3 @@
+class SignInUseCase {
+  void execute() {}
+}
