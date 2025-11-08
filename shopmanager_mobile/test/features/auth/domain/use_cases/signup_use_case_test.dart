@@ -23,7 +23,7 @@ void main() {
       final singUpUseCase = SignUpUseCase(authRepository: mockAuthRepository);
 
       when(
-        () => mockAuthRepository.signUp(request: any(named: 'request')),
+        () => mockAuthRepository.signUp(any()),
       ).thenAnswer((_) async => UserConstants.userId);
 
       final result = await singUpUseCase.execute(
@@ -35,7 +35,7 @@ void main() {
       expect(result, UserConstants.userId);
 
       verify(
-        () => mockAuthRepository.signUp(request: any(named: 'request')),
+        () => mockAuthRepository.signUp(any()),
       ).called(1);
     });
   });

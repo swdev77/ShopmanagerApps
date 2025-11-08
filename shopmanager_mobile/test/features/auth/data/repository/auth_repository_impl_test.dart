@@ -10,7 +10,7 @@ void main() {
       final authRepository = AuthRepositoryImpl();
 
       final result = await authRepository.signUp(
-        request: SignupRequest(
+        SignupRequest(
           username: UserConstants.username,
           email: UserConstants.email,
           password: UserConstants.password,

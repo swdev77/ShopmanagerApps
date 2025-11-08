@@ -12,7 +12,7 @@ class SignUpUseCase {
     required String password,
   }) async {
     return await authRepository.signUp(
-      request: SignupRequest(
+      SignupRequest(
         username: username,
         email: email,
         password: password,
