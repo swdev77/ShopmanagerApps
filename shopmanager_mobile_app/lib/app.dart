@@ -36,7 +36,7 @@ class App extends StatelessWidget {
               return const AuthPage();
             }
             if (state is Authenticated) {
-              return HomePage();
+              return const HomePage();
             } else {
               return const Center(
                 child: CircularProgressIndicator(),
