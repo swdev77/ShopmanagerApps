@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shopmanager_mobile/features/auth/data/repository/auth_repository_impl.dart';
-import 'package:shopmanager_mobile/features/auth/domain/models/signin_request.dart';
 import 'package:shopmanager_mobile/features/auth/domain/use_cases/signin_use_case.dart';
 import 'package:shopmanager_mobile/features/auth/domain/use_cases/signup_use_case.dart';
 
@@ -26,10 +25,10 @@ void main() {
 
     test('sign in use case', () async {
 
-      final request = SigninRequest(
-        email: UserConstants.email,
-        password: UserConstants.password,
-      );
+      // final request = SigninRequest(
+      //   email: UserConstants.email,
+      //   password: UserConstants.password,
+      // );
       
       final SignInUseCase signInUseCase = SignInUseCase(
         authRepository: AuthRepositoryImpl(),
