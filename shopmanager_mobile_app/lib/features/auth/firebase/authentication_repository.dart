@@ -10,9 +10,9 @@ class AuthenticationRepository {
     CacheClient? cacheClient,
     firebase_auth.FirebaseAuth? firebaseAuth,
     GoogleSignIn? googleSignIn,
-  })  : _cacheClient = cacheClient ?? CacheClient(),
-        _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
-        _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
+  }) : _cacheClient = cacheClient ?? CacheClient(),
+       _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
+       _googleSignIn = googleSignIn ?? GoogleSignIn.instance;
 
   final CacheClient _cacheClient;
   final firebase_auth.FirebaseAuth _firebaseAuth;
@@ -41,10 +41,7 @@ class AuthenticationRepository {
 
   // _cacheClient.read<UserModel>(key: userCacheKey) ?? UserModel.empty;
 
-  Future<void> signUp({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signUp({required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
@@ -67,10 +64,17 @@ class AuthenticationRepository {
         );
         credential = userCredential.credential!;
       } else {
-        final googleUser = await _googleSignIn.signIn();
-        final googleAuth = await googleUser!.authentication;
+        await _googleSignIn.initialize();
+        final account = await _googleSignIn.authenticate(
+          scopeHint: ['email', 'profile'],
+        );
+        final authClient = _googleSignIn.authorizationClient;
+        final authorization = await authClient.authorizationForScopes(
+           ['email'],
+        );
+        final googleAuth = account.authentication;
         credential = firebase_auth.GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
+          accessToken: authorization?.accessToken,
           idToken: googleAuth.idToken,
         );
       }
@@ -100,10 +104,7 @@ class AuthenticationRepository {
 
   Future<void> logOut() async {
     try {
-      await Future.wait([
-        _firebaseAuth.signOut(),
-        _googleSignIn.signOut(),
-      ]);
+      await Future.wait([_firebaseAuth.signOut(), _googleSignIn.signOut()]);
     } catch (_) {
       throw LogOutFailure();
     }
@@ -120,10 +121,6 @@ class AuthenticationRepository {
 }
 
 extension on firebase_auth.User {
-  UserModel get toUserModel => UserModel(
-        id: uid,
-        email: email,
-        name: displayName,
-        photo: photoURL,
-      );
+  UserModel get toUserModel =>
+      UserModel(id: uid, email: email, name: displayName, photo: photoURL);
 }
